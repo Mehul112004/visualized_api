@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import express from "express";
 import { DataModel } from "./model.js";
-import data from "./data.json" assert {type:'json'}
+import "dotenv/config"
 
 const app = express();
 
@@ -9,7 +9,7 @@ const test =[]
 
 mongoose
   .connect(
-    "mongodb+srv://mehulbohra11:b1nRLDNd9UmTbMgZ@datacluster.wv2kbyx.mongodb.net/?retryWrites=true&w=majority&appName=dataCluster"
+    process.env.MONGODB_URI
   )
   .then(() => {
     console.log("Connected to MongoDB!!");
